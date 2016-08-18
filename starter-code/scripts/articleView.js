@@ -17,6 +17,7 @@ articleView.populateFilters = function() {
   });
 };
 
+//BEGIN AUTHOR-FILTER JQUERY//
 articleView.handleAuthorFilter = function() {
   $('#author-filter').on('change', function() {
     if ($(this).val()) {
@@ -29,6 +30,7 @@ articleView.handleAuthorFilter = function() {
     $('#category-filter').val('');
   });
 };
+//END AUTHOR-FILTER//
 
 articleView.handleCategoryFilter = function() {
   $('#category-filter').on('change', function() {
