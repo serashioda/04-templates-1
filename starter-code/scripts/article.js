@@ -44,6 +44,7 @@ ourLocalData.forEach(function(ele) {
   articles.push(new Article(ele));
 });
 
+//calling function to show author dropdown menu via handlebars
 $('#authorfilter').append(Article.prototype.authorFilterToHtml());
 
 //articles is the array we declared in the global space

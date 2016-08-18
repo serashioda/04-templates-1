@@ -61,7 +61,7 @@ articleView.setTeasers = function() {
   });
 };
 
-articleView.populateFilters();
+// articleView.populateFilters();
 articleView.handleCategoryFilter();
 articleView.handleAuthorFilter();
 articleView.handleMainNav();
