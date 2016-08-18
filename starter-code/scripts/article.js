@@ -24,7 +24,17 @@ Article.prototype.toHtml = function() {
   var source = $('#articles-template').html();
   var templateRender = Handlebars.compile(source);
   return templateRender(this);
+
 };
+
+Article.prototype.authorFilterToHtml = function(){
+  console.log('hello');
+  var source = $('#author-filter-template').html();
+  var templateRender = Handlebars.compile(source);
+  return templateRender(this);
+};
+
+
 
 ourLocalData.sort(function(a,b) {
   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
@@ -34,6 +44,9 @@ ourLocalData.forEach(function(ele) {
   articles.push(new Article(ele));
 });
 
+$('#authorfilter').append(Article.prototype.authorFilterToHtml());
+
+//articles is the array we declared in the global space
 articles.forEach(function(a){
   $('#articles').append(a.toHtml());
 });

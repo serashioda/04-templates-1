@@ -37,6 +37,24 @@
         option element (one for author, one for category), and
         render the list once you have data to populate it with.
        -->
+       <script id="author-filter-template" type="text/x-handlebars-template">
+         <div>
+           <ul id="filters">
+             <li>
+               <select id="author-filter">
+                 <option value="">-- Filter by Authors --</option>
+               </select>
+             </li>
+             <li>
+               <select id="category-filter">
+                 <option value="">-- Filter by Categories --</option>
+               </select>
+             </li>
+           </ul>
+         </div>
+
+       </script>
+
   </head>
   <body>
     <header class="site-header clearfix">
@@ -58,22 +76,14 @@
       </nav>
     </header>
     <main>
-      <section id="articles" class="tab-content">
-        <div>
-          <ul id="filters">
-            <li>
-              <select id="author-filter">
-                <option value="">-- Filter by Authors --</option>
-              </select>
-            </li>
-            <li>
-              <select id="category-filter">
-                <option value="">-- Filter by Categories --</option>
-              </select>
-            </li>
-          </ul>
-        </div>
+      <section id="authorfilter">
+
       </section>
+
+      <section id="articles" class="tab-content">
+
+      </section>
+
       <section id="about" class="tab-content">
         <header>
           Welcome to my Blog
