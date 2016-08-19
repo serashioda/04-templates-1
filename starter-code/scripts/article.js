@@ -30,6 +30,14 @@ Article.prototype.authorFilterToHtml = function(){
   return templateRender(this);
 };
 // END AUTHOR-FILTER FUNCTION //
+// //  CATEGORY-FILTER FUNCTION //
+Article.prototype.categoryFilterToHtml = function(){
+  console.log('bye');
+  var source = $('#category-filter-template').html();
+  var templateRender = Handlebars.compile(source);
+  return templateRender(this);
+};
+// // END CATEGORY-FILTER FUNCTION //
 
 ourLocalData.sort(function(a,b) {
   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
@@ -39,11 +47,9 @@ ourLocalData.forEach(function(ele) {
   articles.push(new Article(ele));
 });
 
-//calling function to show author dropdown menu via handlebars
-$('#authorfilter').append(Article.prototype.authorFilterToHtml());
-
 //articles is the array we declared in the global space
 articles.forEach(function(a){
   $('#articles').append(a.toHtml());
   $('#author-filter').append(a.authorFilterToHtml());
+  $('#category-filter').append(a.categoryFilterToHtml());
 });

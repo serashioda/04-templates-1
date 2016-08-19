@@ -41,8 +41,12 @@
     <script id="author-filter-template" type="text/x-handlebars-template">
       <option value="{{author}}">{{author}}</option>
     </script>
-
-  <!--////// END AUTHOR-FILTER TEMPLATE //////-->
+    <!--////// END AUTHOR-FILTER TEMPLATE -->
+    <!--////// BEGINE CATEGORY-FILTER TEMPLATE //////-->
+    <script id="category-filter-template" type="text/x-handlebars-template">
+      <option value="{{category}}">{{category}}</option>
+    </script>
+    <!--////// END CATEGORY-FILTER TEMPLATE //////-->
   </head>
   <body>
     <header class="site-header clearfix">
@@ -74,7 +78,7 @@
             </li>
             <li>
               <select id="category-filter">
-              <option value="{{category}}">-- Filter by Categories --</option>
+              <option value="">Filter by Categories</option>
               </select>
            </li>
          </ul>
