@@ -39,15 +39,17 @@ Article.prototype.categoryFilterToHtml = function(){
 };
 // // END CATEGORY-FILTER FUNCTION //
 
+//DISPLAYS ARTICLES IN ASCENDING ORDER
 ourLocalData.sort(function(a,b) {
   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
 });
 
+//PUTS OBJECTS INTO articles ARRAY
 ourLocalData.forEach(function(ele) {
   articles.push(new Article(ele));
 });
 
-//articles is the array we declared in the global space
+//LOOPS THROUGH ARRAY OF ARTICLES AND APPENDS RESPECTIVE PROPERTY TO APPROPRIATE DOM ELEMENT
 articles.forEach(function(a){
   $('#articles').append(a.toHtml());
   $('#author-filter').append(a.authorFilterToHtml());
