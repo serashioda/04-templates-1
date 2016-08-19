@@ -1,4 +1,19 @@
 var articles = [];
+// var categoryArray = [];
+//
+// //pushing the categories into a for loop
+// for (var i = 0; i < ourLocalData.length; i++){
+//   categoryArray.push(ourLocalData[i].category);
+// }
+
+
+//used this from stackoverflow user Christian Landgren
+//http://stackoverflow.com/questions/9229645/remove-duplicates-from-javascript-array
+// var removeCategoryDups = categoryArray.reduce(function(a,b){
+//   console.log(a , b);
+//   if(a.indexOf(b) < 0 ) a.push(b);
+//   return a;
+// },[]);
 
 function Article (opts) {
   this.author = opts.author;
@@ -24,7 +39,6 @@ Article.prototype.toHtml = function() {
 
 //  AUTHOR-FILTER FUNCTION //
 Article.prototype.authorFilterToHtml = function(){
-  console.log('hello');
   var source = $('#author-filter-template').html();
   var templateRender = Handlebars.compile(source);
   return templateRender(this);
@@ -32,7 +46,6 @@ Article.prototype.authorFilterToHtml = function(){
 // END AUTHOR-FILTER FUNCTION //
 // //  CATEGORY-FILTER FUNCTION //
 Article.prototype.categoryFilterToHtml = function(){
-  console.log('bye');
   var source = $('#category-filter-template').html();
   var templateRender = Handlebars.compile(source);
   return templateRender(this);
@@ -47,11 +60,15 @@ ourLocalData.sort(function(a,b) {
 //PUTS OBJECTS INTO articles ARRAY
 ourLocalData.forEach(function(ele) {
   articles.push(new Article(ele));
+
 });
 
 //LOOPS THROUGH ARRAY OF ARTICLES AND APPENDS RESPECTIVE PROPERTY TO APPROPRIATE DOM ELEMENT
 articles.forEach(function(a){
   $('#articles').append(a.toHtml());
   $('#author-filter').append(a.authorFilterToHtml());
-  $('#category-filter').append(a.categoryFilterToHtml());
+  if ($('#category-filter option[value="' + a.category + '"]').length === 0){
+    $('#category-filter').append(a.categoryFilterToHtml());
+  }
+
 });
